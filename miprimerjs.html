@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prácticas JS</title>
+</head>
+<body>
+    <p id="mensaje"></p>
+    <button type="button" onclick="miFuncion()">Pincha aquí</button>
+<script>
+
+        //EJERCICIO 1
+        
+    function miFuncion(){
+      // alert("Hola caracola");
+       console.log("Hola caracola");
+      // document.write("Hola caracola");
+      // window.print();
+
+       document.getElementById("mensaje").innerHTML = "Esto es un mensaje";
+
+       let nombre;
+       let x, y;
+       let edad;
+       let procedencia;
+       let megusta;
+
+
+       megusta= "JavaScript!!";
+       procedencia = "Almassora." 
+       edad=44; 
+       nombre = "Héctor";
+       let apellidos = " Tena Tena ";
+
+        x=30;
+        y=3.14;
+
+        console.log(x);
+        console.log(y);
+        console.log(x+y);
+        document.getElementById("mensaje").innerHTML = "Hola, soy " + nombre + apellidos + " , tengo " + edad + " años" + " y soy de " + procedencia + " y me gusta " + megusta;
+
+    
+    }
+    
+
+
+</script>    
+</body>
+</html>

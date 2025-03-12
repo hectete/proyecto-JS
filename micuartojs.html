@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+        <p id="mensaje" style="font-size: 40px;"></p>
+        <button type="button" onclick="miFuncion()" style="font-size: 30px; background-color: aquamarine;">Pincha aquí</button>
+    <script>
+         function miFuncion(){
+
+            //EJERCICIO 15 LOOP CUENTA Nºs
+
+           /* cont = 0;
+            let num = parseInt( prompt ("\n Por favor introduce un número"));
+            console.log(num);
+
+            while ( num != 0){
+
+                cont ++;
+                console.log(cont);
+                num = parseInt( prompt ("\n Por favor introduce un número"));
+            }
+
+            document.getElementById("mensaje").innerHTML ="El usuario ha introducido" + cont + "números.";*/
+
+            //EJERCICIO 15 A MÁS LOOPS
+
+           /* let cont = 0;
+            let num = 1;
+
+            console.log (num);
+
+            while (num != 0){
+                cont ++;
+                console.log(cont);
+
+                num = parseInt(prompt ("\nPor favor, introduce un número"));
+
+                if (num != 0) cont++;
+                console.log (cont);
+
+                document.getElementById("mensaje").innerHTML ="El usuario ha introducido" + cont + "números.";
+
+            }*/
+
+            //EJERCICIO 16 BUCLE QUE SUMA LOS Nºs INTRODUCIDOS
+
+           /* let cont = 0;
+            let num = parseInt(prompt ("\nPor favor, introduce un número"));
+            let sum = 0 ;
+           // console.log ();
+
+            while (num != 0){
+                cont ++;
+                sum += num;
+                console.log(" Contador = " + cont);
+                console.log( "De momento suman=" + sum);
+
+                num = parseInt(prompt ("\nPor favor, introduce un número"));
+
+               // if (num != 0) cont++;
+               // else if (num !=0) suma(num);
+               // console.log (cont);
+
+                document.getElementById("mensaje").innerHTML ="El usuario ha introducido " + cont + " números." + " <br>Los números introducidos suman:" + sum ;
+
+            }
+            
+            //EJERCICIO 17 BUCLE QUE SUMA LOS Nºs INTRODUCIDOS Y CUENTA LOS PARES Y LOS IMPARES
+
+            let cont = 0;
+            let num = parseInt(prompt ("\nPor favor, introduce un número"));
+            let sum = 0 ;
+            let contPares=  0;
+            let contImpares= 0;
+           // console.log ();
+
+            while (num != 0){
+                cont ++;
+                
+                sum += num;
+                if (num % 2 === 0){
+                    contPares++;
+
+                }else{
+                    contImpares++;
+                }
+
+                //El if else se puede sustituir por esto:
+                //(num % 2 === o )? contPares ++ : contImpares ++;
+
+                console.log(" Contador = " + cont);
+                console.log( "De momento suman=" + sum);
+
+                num = parseInt(prompt ("\nPor favor, introduce un número"));
+
+                document.getElementById("mensaje").innerHTML ="El usuario ha introducido " + cont + " números." + " <br>Los números introducidos suman: " + sum 
+                +".<br> Tantos números pares: " + contPares + ". <br> Tantos números impares: " + contImpares + ".";*/
+
+
+
+            //EJERCICIO 18 FACTURA CON SCWITCH Y BUCLE AL FINAL PARA VOLVER A METER MÁS ARTÍCULOS
+
+            let articulo, precio, cantidad, total, total_final= 0, iva, mensaje = "";
+
+            do {  
+                articulo = prompt("Introduce el nombre del artículo");
+                precio = parseFloat(prompt("Introduce el precio del artículo"));
+                cantidad = parseInt(prompt("Introduce la cantidad de artículos"));
+                total = precio * cantidad;
+                iva= 
+       
+        let  option = parseInt (prompt ("Introduce el tipo de iva \n1 21%,\n2 10%,\n3 4%,")) ;
+
+        switch (option) {
+                    case 1:
+                        totalConIva = total * 1.21;
+                        break;
+                    case 2:
+                        totalConIva = total * 1.10;
+                        break;
+                    case 3:
+                        totalConIva = total * 1.04;
+                        break;
+                    default:
+                        totalConIva = total * 1.21;
+        }
+        total_final += totalConIva;
+
+            mensaje += "El artículo " + articulo + " <br> cuesta " + precio + "€ <br> y has comprado " + cantidad + " unidades.<br> El total sin IVA es: " + total + "€ <br> y el total con IVA es: " + totalConIva + "€<br><br>";
+
+            document.getElementById("mensaje").innerHTML = mensaje;
+
+            var opcion = prompt("¿Quieres comprar más? (S/N)");
+
+            } while (opcion.toLowerCase() == "s");
+
+            mensaje += "Total de factura: " + total_final + "€";
+
+            document.getElementById("mensaje").innerHTML = mensaje;
+        }
+
+        
+
+    </script>
+ 
+</body>
+</html>

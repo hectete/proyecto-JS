@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Factura</title>
+    <style>
+        /* Estilos para la tabla */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 800px;
+            margin: 20px 0;
+        }
+
+        /* Estilos para las celdas de cabecera y datos */
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center; /* Alineación por defecto centrada */
+        }
+
+        /* Fondo de la cabecera */
+        thead tr {
+            background-color: #f2f2f2;
+        }
+
+        /* Estilo para el pie de tabla (total) */
+        tfoot tr {
+            font-weight: bold;
+        }
+
+        /* Alineación específica para el texto "Total Factura" */
+        tfoot td:first-child {
+            text-align: right; /* Mantener "Total Factura" a la derecha */
+        }
+
+        /* Estilo para el botón */
+        button {
+            font-size: 30px;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="miFuncion()">Crear Factura</button>
+    <div id="mensaje"></div>
+    
+    <script>
+        function miFuncion() {
+            let articulo, precio, cantidad, total, total_final = 0, totalConIva, mensaje = "";
+            
+            do {
+                articulo = prompt("Introduce el nombre del artículo");
+                precio = parseFloat(prompt("Introduce el precio del artículo"));
+                cantidad = parseInt(prompt("Introduce la cantidad de artículos"));
+                total = precio * cantidad;
+
+                let option = parseInt(prompt("Introduce el tipo de IVA \n1 21%,\n2 10%,\n3 4%"));
+                let ivaType;
+
+                switch (option) {
+                    case 1:
+                        totalConIva = total * 1.21;
+                        ivaType = "21%";
+                        break;
+                    case 2:
+                        totalConIva = total * 1.10;
+                        ivaType = "10%";
+                        break;
+                    case 3:
+                        totalConIva = total * 1.04;
+                        ivaType = "4%";
+                        break;
+                    default:
+                        totalConIva = total * 1.21;
+                        ivaType = "21%";
+                }
+
+                total_final += totalConIva;
+
+                mensaje += `
+                    <tr>
+                        <td>${articulo}</td>
+                        <td>${precio.toFixed(2)}€</td>
+                        <td>${cantidad}</td>
+                        <td>${ivaType}</td>
+                        <td>${total.toFixed(2)}€</td>
+                        <td>${totalConIva.toFixed(2)}€</td>
+                    </tr>
+                `;
+
+                var opcion = prompt("¿Quieres comprar más? (S/N)");
+            } while (opcion.toLowerCase() === "s");
+
+            let tablaCompleta = `
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Artículo</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                            <th>IVA</th>
+                            <th>Total sin IVA</th>
+                            <th>Total con IVA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${mensaje}
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="5">Total Factura:</td>
+                            <td>${total_final.toFixed(2)}€</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            `;
+
+            document.getElementById("mensaje").innerHTML = tablaCompleta;
+        }
+    </script>
+</body>
+</html>

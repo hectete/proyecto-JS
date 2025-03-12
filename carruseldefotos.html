@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrusel de fotos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        #carrusel {
+            width: 700px;
+            height: 450px;
+            overflow: hidden;
+            margin: auto;
+        }
+        #imagen {
+            width: 700px;
+            height: 450px;
+        }
+        #boton {
+            font-size: 70px;
+            background-color: rgb(127, 131, 255);
+            margin: 0 15px;
+        }
+        .botones {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <section id="carrusel">
+        <img src="img/perro1.jpg" alt="" id="imagen" width="700px" height="450px">
+    </section>
+
+    <div class="botones">
+        <button id="boton" type="button" onclick="primera()"> <i class="fa-solid fa-backward-fast"></i> </button>
+        <button id="boton" type="button" onclick="anterior()"><i class="fas fa-backward-step"></i></button>
+        <button id="boton" type="button" onclick="siguiente()"><i class="fas fa-forward-step"></i></button>
+        <button id="boton" type="button" onclick="ultima()"><i class="fa-solid fa-forward-fast"></i> </button>
+        <button id="boton" type="button" onclick="play()"> <i class="fa-solid fa-play"></i> </button>
+        <button id="boton" type="button" onclick="stop()"> <i class="fa-solid fa-stop"></i> </button>
+    </div>
+
+    <script>
+        let fotos = ["img/perro1.jpg", "img/perro2.jpg", "img/perro3.jpg", "img/perro4.jpg"];
+        let posicion = 0;
+        let intervalo;
+
+        function siguiente() {
+            posicion++;
+            document.getElementById("imagen").src = fotos[Math.abs(posicion % fotos.length)];
+            console.log(posicion);
+        }
+
+        function anterior() {
+            posicion--;
+            document.getElementById("imagen").src = fotos[Math.abs(posicion % fotos.length)];
+            console.log(posicion);
+        }
+
+        function primera() {
+            posicion = 0;
+            document.getElementById("imagen").src = fotos[posicion];
+            console.log(posicion);
+        }
+
+        function ultima() {
+            posicion = fotos.length - 1;
+            document.getElementById("imagen").src = fotos[posicion];
+            console.log(posicion);
+        }
+
+        function play() {
+            intervalo = setInterval(siguiente, 2000);
+        }
+
+        function stop() {
+            clearInterval(intervalo);
+        }
+    </script>
+</body>
+</html>

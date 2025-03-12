@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6 ejercicio</title>
+</head>
+<body>
+    <p id="mensaje" style="font-size: 30px;"></p>
+    <button type="button" onclick="miFuncion()" style="font-size: 30px; background-color: aquamarine;">Pincha aquí</button>
+    <script>
+        function miFuncion() {
+            // EJERCICIO 24: NÚMEROS ENTRE M Y N
+           /* let mensaje = "", i;
+
+            let m = parseInt(prompt("Introduce un número"));
+            let n = parseInt(prompt("Introduce otro número"));
+
+            if (m > n) {
+                for (i = m; i >= n; i--) {
+                    mensaje += i + ", ";
+                }
+            } else {
+                for (i = m; i <= n; i++) {
+                    mensaje += i + ", ";
+                }
+            }
+
+            // Update the mensaje element with the generated message
+            document.getElementById("mensaje").innerHTML = mensaje;*/
+
+
+            //EJERCICIO 25 TABLA DE MULTIPLICAR
+
+        /*let mensaje ="", i;
+        let tabla = parseInt(prompt("Introduce la tabla que quieras calcular"));
+
+        for (i = 1; i<=10; i++){
+
+            mensaje += tabla + "  x  " + i + "  =  " +  (tabla * i) + "<br>"
+        }
+
+        document.getElementById("mensaje").innerHTML = mensaje;*/
+
+            //EJERCICIO 26 TODAS LAS TABLAS DEL 1 AL 10
+
+           /* let mensaje = "<pre>", tabla, fila;
+
+            for (tabla = 0; tabla <= 10; tabla ++ ){
+
+                mensaje += " Tabla del " + tabla + ": <br>---------------<br>"
+
+                for ( fila = 0; fila <= 10; fila ++){
+
+                    if (tabla < 10) mensaje += " ";
+                    mensaje += tabla + " x ";
+
+                    if (fila < 10) mensaje += " ";
+                    mensaje += fila + " = ";
+
+                    if (tabla*fila < 10) mensaje += "  ";
+                    else if (tabla*fila < 100) mensaje += " ";
+                    mensaje +=  (tabla*fila) + "<br>";
+
+                //mensaje += tabla + "  x  " + fila + "  =  " +  (tabla * fila) + "<br>";
+
+
+            }
+                mensaje += "<br><br>";           
+             }
+
+             mensaje += "</pre>";
+
+            document.getElementById("mensaje").innerHTML = mensaje;*/
+
+            //EJERCICIO 27 FACTORIAL copilot
+
+            /*let mensaje = "";
+            let a = parseFloat(prompt("Introduce un número para calcular su factorial"));
+            let factorial = 1;
+
+                for (let i = 1; i <= a; i++) {
+                factorial *= i;
+                 }
+
+            mensaje = "El factorial de " + a + " es " + factorial;
+
+            document.getElementById("mensaje").innerHTML = mensaje;*/
+
+            //EJERCICIO 27 FACTORIAL
+
+            /*let mensaje ="";
+            let a = parseFloat(prompt("Introduce un nº para calcular el factorial"));
+            let factorial = 1;
+
+                for (let i = 1; i <= a; i++) {
+
+                    factorial *= i;
+                }
+
+            mensaje = "El factorial de " + a + "es " + factorial;
+            document.getElementById("mensaje").innerHTML = mensaje;*/
+
+            //EJERCICIO 28 Nºs PRIMOS
+
+        /*let num = parseFloat(prompt("Introduce un número para saber si es un nº primo"));
+        let mensaje = "";
+        let esPrimo = true;
+
+        if (num <= 1) {
+            esPrimo = false;
+        } else {
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) {
+                    esPrimo = false;
+                    break;
+                }
+            }
+        }
+
+        if (esPrimo) {
+            mensaje = "El nº " + num + " SI es un nº primo.";
+        } else {
+            mensaje = "El nº " + num + " NO es un nº primo.";
+        }
+
+        document.getElementById("mensaje").innerHTML = mensaje;*/
+
+        //EJERCICIO 29 IMPRIME LOS Nºs PRIMOS HASTA EL Nº 1000
+
+        let mensaje = "";
+        let esPrimo;
+
+        for (let num = 2; num <= 1000; num++) {
+            esPrimo = true;
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) {
+                    esPrimo = false;
+                    break;
+                }
+            }
+            if (esPrimo) {
+                mensaje += num + " ";
+            }
+        }
+
+        document.getElementById("mensaje").innerHTML = mensaje; 
+
+
+
+        }
+    </script>
+</body>
+</html>

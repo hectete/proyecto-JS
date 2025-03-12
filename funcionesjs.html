@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funciones</title>
+    <style>
+        #capa {
+
+            width: 100%;
+            height: 350px;
+            background-color: aqua;
+
+
+        }
+
+
+    </style>
+</head>
+<body>
+    <p id="mensaje" style="font-size: 30px;"></p>
+
+        <div>
+
+            <button type="button" onclick="mayor3Numeros()" style="font-size: 30px; background-color: aquamarine;">Nº mayor a,b,c</button>
+            <button type="button" onclick="ec2Grado()" style="font-size: 30px; background-color: rgb(255, 225, 127);">Ecuación 2ºGrado</button>
+            <button type="button" onclick="calculadora()" style="font-size: 30px; background-color: rgb(255, 127, 253);">Calculadora</button>
+            <button type="button" onclick="sonPrimos()" style="font-size: 30px; background-color: rgb(127, 131, 255);">Nºs primos -1000</button>
+            <button type="button" onclick="esPrimo()" style="font-size: 30px; background-color: rgb(255, 127, 225);">Es primo</button>
+            <button type="button" onclick="factorial()" style="font-size: 30px; background-color: rgb(172, 255, 127);">Factorial</button>
+            <button type="button" onclick="fibonacci()" style="font-size: 30px; background-color: rgb(255, 159, 127);">Fibonacci</button>
+            <button type="button" onclick="backGroundColor1()" style="font-size: 30px; background-color: rgb(127, 168, 255);">backGroundColor1</button>
+            <button type="button" onclick="backGroundColor2()" style="font-size: 30px; background-color: rgb(255, 208, 127);">backGroundColor2</button>
+            <br>
+            
+        </div>
+        <div id =capa></div>
+    <script>
+        function mayor3Numeros() {
+            let a = parseInt(prompt("Introduce un nº entero para a:"));
+            let b = parseInt(prompt("Introduce un nº entero para b:"));
+            let c = parseInt(prompt("Introduce un nº entero para c:"));
+            let mayor;
+
+            if (a >= b && a >= c) {
+                mayor = a;
+            } else if (b >= a && b >= c) {
+                mayor = b;
+            } else {
+                mayor = c;
+            }
+
+            document.getElementById("mensaje").innerHTML = "El número mayor de a: " + a + ", b: " + b + ", o c:  " + c + " es: " + mayor;
+        }
+
+        function ec2Grado() {
+            let a = parseInt(prompt("Introduce un valor para a:"));
+            let b = parseInt(prompt("Introduce un valor para b:"));
+            let c = parseInt(prompt("Introduce un valor para c:"));
+
+            let x1, x2;
+            let discriminante = b * b - 4 * a * c;
+
+            if (discriminante >= 0) {
+                x1 = (-b + Math.sqrt(discriminante)) / (2 * a);
+                x2 = (-b - Math.sqrt(discriminante)) / (2 * a);
+
+                document.getElementById("mensaje").innerHTML = "En esta ecuación de 2º grado:<br>El valor de x1 es: " + x1 + "<br>El valor de x2 es: " + x2;
+            } else {
+                document.getElementById("mensaje").innerHTML = "La ecuación no tiene soluciones reales.";
+            }
+        }
+    
+        function calculadora() {
+            let option = parseInt(prompt("Introduce la operación a realizar \n1 suma,\n2 resta,\n3 multiplicacion,\n4 division"));
+
+            switch (option) {
+                case 1:
+                    sumar();
+                    break;
+                case 2:
+                    restar();
+                    break;
+                case 3:
+                    multiplicar();
+                    break;
+                case 4:
+                    dividir();
+                    break;
+                default:
+                    alert("Por favor introduce un nº del 1 al 4");
+            }
+
+            function sumar() {
+                let a = parseFloat(prompt("Introduce un nº 1"));
+                let b = parseFloat(prompt("Introduce un nº 2"));
+                let resultado = a + b;
+                document.getElementById("mensaje").innerHTML = "El resultado de la suma es: " + resultado;
+            }
+
+            function restar() {
+                let a = parseFloat(prompt("Introduce un nº 1"));
+                let b = parseFloat(prompt("Introduce un nº 2"));
+                let resultado = a - b;
+                document.getElementById("mensaje").innerHTML = "El resultado de la resta es: " + resultado;
+            }
+
+            function multiplicar() {
+                let a = parseFloat(prompt("Introduce un nº 1"));
+                let b = parseFloat(prompt("Introduce un nº 2"));
+                let resultado = a * b;
+                document.getElementById("mensaje").innerHTML = "El resultado de la multiplicación es: " + resultado;
+            }
+
+            function dividir() {
+                let a = parseFloat(prompt("Introduce un nº 1"));
+                let b = parseFloat(prompt("Introduce un nº 2"));
+                let resultado = a / b;
+                document.getElementById("mensaje").innerHTML = "El resultado de la división es: " + resultado;
+            }
+        }
+
+        function sonPrimos() {
+            let mensaje = "";
+            let esPrimo;
+
+            for (let num = 2; num <= 1000; num++) {
+                esPrimo = true;
+                for (let i = 2; i <= Math.sqrt(num); i++) {
+                    if (num % i === 0) {
+                        esPrimo = false;
+                        break;
+                    }
+                }
+                if (esPrimo) {
+                    mensaje += num + ", ";
+                }
+            }
+
+            document.getElementById("mensaje").innerHTML = mensaje;
+        }
+
+        function esPrimo() {
+            let num = parseFloat(prompt("Introduce un número para saber si es un nº primo."));
+            let mensaje = "";
+            let esPrimo = true;
+
+            if (num <= 1) {
+                esPrimo = false;
+            } else {
+                for (let i = 2; i <= Math.sqrt(num); i++) {
+                    if (num % i === 0) {
+                        esPrimo = false;
+                        break;
+                    }
+                }
+            }
+
+            if (esPrimo) {
+                mensaje = "El nº " + num + " SI es un nº primo.";
+            } else {
+                mensaje = "El nº " + num + " NO es un nº primo.";
+            }
+
+            document.getElementById("mensaje").innerHTML = mensaje;
+        }
+
+        function factorial () {
+
+            let mensaje ="";
+            let a = parseFloat(prompt("Introduce un nº para calcular el factorial"));
+            let factorial = 1;
+
+                for (let i = 1; i <= a; i++) {
+
+                    factorial *= i;
+                }
+
+            mensaje = "El factorial de " + a + " es: " + factorial +".";
+            document.getElementById("mensaje").innerHTML = mensaje;
+
+        }
+
+        function fibonacci() {
+            let num = parseInt(prompt("Introduce un nº para calcular la sucesión de Fibonacci hasta ese número."));
+            let mensaje = "";
+            let a = 0, b = 1, temp;
+
+            for (let i = 1; i <= num; i++) {
+                mensaje += a + ", ";
+                temp = a + b;
+                a = b;
+                b = temp;
+            }
+
+            document.getElementById("mensaje").innerHTML = "La sucesión de Fibonacci hasta el número " + num + " es: " + mensaje;
+        }
+
+        function backGroundColor1 () {
+
+            document.getElementById("capa").style.backgroundColor = "red";
+        }
+
+        function backGroundColor2 () {
+
+           if( document.body.style.backgroundColor == "green") {
+              document.body.style.backgroundColor = "red";
+           }
+            
+           else {
+            document.body.style.backgroundColor = "green";
+           }
+        }
+
+        
+        
+    </script>
+</body>
+</html>

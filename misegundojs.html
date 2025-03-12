@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prácticas JS</title>
+</head>
+<body>
+    <p id="mensaje"></p>
+    <button type="button" onclick="miFuncion()">Pincha aquí</button>
+<script>
+
+    function miFuncion(){
+        
+       
+        //EJERCICIO 1
+
+       // let nombre, apellido;
+        //nombre = prompt(" Por favor, introduce tu nombre");
+        //apellido = prompt(" Por favor, introduce tu apellido");
+        //document.getElementById("mensaje").innerHTML = "Hola " + nombre + " " + apellido + " ¿Cómo estás?";
+       // let numero1, numero2, resultado;
+
+       //EJERCICIO 2
+
+        //numero1 = prompt("Introduce el primer número");
+       // numero2 = prompt("Introduce el segundo número");
+        //resultado = parseInt(numero1) + parseInt(numero2);
+        //document.getElementById("mensaje").innerHTML = "El resultado de la suma es: " + resultado;
+
+        //EJERCICIO 3
+
+        
+       // let l;
+        //l =  parseFloat (prompt("Introduce la longitud del lado del cuadrado"));
+        //let area = l * l;
+        //let perimetro = 4 * l;
+        //document.getElementById("mensaje").innerHTML = "El área del cuadrado es: " + area + "<br> El perímetro del cuadrado es: " + perimetro;
+
+        //EJERCICIO 4
+        
+       // let radio
+        //radio = parseFloat( prompt("Introduce el número del radio del círculo"));
+       // const PI = 3.1416;
+        //let area = PI * radio * radio;
+        //let perimetro = 2 * PI * radio;
+       // let volumen = (4/3) * PI * radio * radio * radio;
+        //document.getElementById("mensaje").innerHTML = "El área del círculo es: " + area + "<br> El perímetro del círculo es: " + perimetro + "<br> El volumen de la esfera es: " + volumen;
+
+        //EJERCICIO 5 resuelve ecuaciones de segundo grado
+
+        let a, b, c;
+        a = parseFloat(prompt("Introduce el valor de a"));
+        b = parseFloat(prompt("Introduce el valor de b"));
+        c = parseFloat(prompt("Introduce el valor de c"));
+        let x1, x2; 
+        x1 = (-b + Math.sqrt(b*b - 4*a*c)) / (2*a);
+        x2 = (-b - Math.sqrt(b*b - 4*a*c)) / (2*a);
+        document.getElementById("mensaje").innerHTML = " En esta ecuación de 2º grado: <br> El valor de x1 es: " + x1 + "<br> El valor de x2 es: " + x2;
+
+        
+
+
+    }
+
+    
+
+
+</script>    
+</body>
+</html>

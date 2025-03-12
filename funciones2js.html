@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotos funciones</title>
+    <style>
+        #imagen {
+            width: 80%;
+            height: 650px;
+            padding-top: 0px;
+            padding-left: 50px;
+           
+        }
+        body {
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <p id="mensaje" style="font-size: 40px;"></p>
+    <button type="button" onclick="cambioImagen()" style="font-size: 25px; background-color: rgb(255, 193, 127);">Pincha <br> aquí</button>
+    
+    <img src="img/perro3.jpg" id="imagen">
+
+    <script>
+        function cambioImagen() {
+            let imgElement = document.getElementById("imagen");
+            if (imgElement.src.includes("perro3.jpg")) {
+                imgElement.src = "img/perro4.jpg";
+            } 
+            
+            
+             else {
+                imgElement.src = "img/perro3.jpg";
+            }
+        }
+    </script>    
+</body>
+</html>

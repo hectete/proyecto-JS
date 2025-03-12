@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Factura</title>
+</head>
+<body>
+    <button onclick="miFuncion()"style="font-size: 30px; background-color: aquamarine;">Crear Factura</button>
+    <div id="mensaje"></div>
+    
+    <script>
+        // [Insert the JavaScript code from above here]
+        function miFuncion() {
+    let articulo, precio, cantidad, total, total_final = 0, totalConIva, mensaje = "";
+    
+    do {
+        articulo = prompt("Introduce el nombre del artículo");
+        precio = parseFloat(prompt("Introduce el precio del artículo"));
+        cantidad = parseInt(prompt("Introduce la cantidad de artículos"));
+        total = precio * cantidad;
+
+        let option = parseInt(prompt("Introduce el tipo de IVA \n1 21%,\n2 10%,\n3 4%"));
+        let ivaType;
+
+        switch (option) {
+            case 1:
+                totalConIva = total * 1.21;
+                ivaType = "21%";
+                break;
+            case 2:
+                totalConIva = total * 1.10;
+                ivaType = "10%";
+                break;
+            case 3:
+                totalConIva = total * 1.04;
+                ivaType = "4%";
+                break;
+            default:
+                totalConIva = total * 1.21;
+                ivaType = "21%";
+        }
+
+        total_final += totalConIva;
+
+        // Add table rows for each item
+        mensaje += `
+            <tr>
+                <td>${articulo}</td>
+                <td>${precio.toFixed(2)}€</td>
+                <td>${cantidad}</td>
+                <td>${ivaType}</td>
+                <td>${total.toFixed(2)}€</td>
+                <td>${totalConIva.toFixed(2)}€</td>
+            </tr>
+        `;
+
+        var opcion = prompt("¿Quieres comprar más? (S/N)");
+    } while (opcion.toLowerCase() === "s");
+
+    // Complete HTML with table structure and styling
+    let tablaCompleta = `
+        <table style="border-collapse: collapse; width: 100%; max-width: 800px; margin: 20px 0;">
+            <thead>
+                <tr style="background-color: #f2f2f2; text align: center;">
+                    <th style="padding: 10px; border: 1px solid #ddd; text align: left;">Artículo</th>
+                    <th style="padding: 10px; border: 1px solid #ddd; text align: right;">Precio</th>
+                    <th style="padding: 10px; border: 1px solid #ddd; text align: center;">Cantidad</th>
+                    <th style="padding: 10px; border: 1px solid #ddd; text align: center;">IVA</th>
+                    <th style="padding: 10px; border: 1px solid #ddd; text align: right;">Total sin IVA</th>
+                    <th style="padding: 10px; border: 1px solid #ddd; text align: right;">Total con IVA</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${mensaje}
+            </tbody>
+            <tfoot>
+                <tr style="font-weight: bold;">
+                    <td colspan="5" style="padding: 10px; border: 1px solid #ddd; text-align: right;">Total Factura:</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">${total_final.toFixed(2)}€</td>
+                </tr>
+            </tfoot>
+        </table>
+    `;
+
+    document.getElementById("mensaje").innerHTML = tablaCompleta;
+}
+
+
+    </script>
+</body>
+</html>

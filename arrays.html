@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+    <button type="button" onclick="contPrimos()" style="font-size: 30px; background-color: rgb(127, 131, 255);">Vector</button>
+</head>
+<body>
+
+    <!-- EJERCICIO 40 VECTOR DE PRIMOS -->
+
+    <p id="mensaje" style="font-size: 30px;"></p>
+    <script>
+        const tam = 100;
+        let vec = new Array(tam);
+
+        // Función para generar el vector aleatorio de 100 números
+        // entre parentesis el nombre de la función pero no es IMPORTANTE!!! LO QUE IMPORTA ES LO QUE NO ESTÁ ENTRE PARENTESIS
+
+        function generarVector() {
+            for (let i = 0; i < tam; i++) {
+                vec[i] = parseInt(Math.random() * 100 + 1);
+                console.log(vec[i]);
+            }
+        }
+
+        generarVector();
+
+        // Función para verificar si un número es primo
+        function esPrimo(num) {
+            if (num <= 1) return false;
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) return false;
+            }
+            return true;
+        }
+
+        // Función para contar los números primos
+        function contPrimos() {
+            let mensaje = "Números generados: " + vec.join(", ") + "<br><br>";
+            let cont = 0;
+
+            mensaje += "Números primos: ";
+            for (let i = 0; i < vec.length; i++) {
+                if (esPrimo(vec[i])) {
+                    mensaje += vec[i] + ", ";
+                    cont++;
+                }
+            }
+
+            mensaje += "<br><br>Número de primos: " + cont;
+            document.getElementById("mensaje").innerHTML = mensaje;
+        }
+    </script>
+
+</body>
+</html>

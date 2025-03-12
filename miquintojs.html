@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+        <p id="mensaje" style="font-size: 30px;"></p>
+        <button type="button" onclick="miFuncion()" style="font-size: 30px; background-color: aquamarine;">Pincha aquí</button>
+    <script>
+         function miFuncion(){
+
+            //EJERCICIO 19 IMPRIMIR NºS HASTA 100 ASCENDENTE
+
+       /* let i = 1;
+        let mensaje = "" ;
+
+        while (i <= 100){
+
+            mensaje += i +", ";
+            i ++;
+        }
+
+        
+        document.getElementById("mensaje").innerHTML = mensaje;*/
+
+                // EJERCICIO 20 IMPRIMIR NºS DE FORMA DESCENDENTE
+
+                
+           /* let i = 100;    
+            let mensaje = "";
+
+            while (i >= 0) {
+                mensaje += i + ", ";
+                i-- ;
+            }
+            
+            document.getElementById("mensaje").innerHTML = mensaje;*/
+
+            //NºS PARES ENTRE EL 50 Y EL 250
+
+            /*let i = 50 ;
+            let mensaje = "" ;
+            
+
+            while (i <= 250){
+
+                if (i % 2==0)
+
+                mensaje += i +", ";
+                i ++;
+            }
+
+            
+            document.getElementById("mensaje").innerHTML = mensaje;*/arguments
+
+            //EJERCICIO 21 BUCLES FOR
+
+            let i ;
+            let mensaje ="";
+
+            for( i = 1; i <= 100; i ++ ){
+
+                mensaje += i + ", ";
+            }
+            mensaje +=  "<br><hr><br>";
+            //document.getElementById("mensaje").innerHTML = mensaje;
+
+
+
+           // i = 100;
+           // mensaje ="";
+
+            for( i = 100; i >= 0; i -- ){
+
+                // Forma en que se escribirá el mensaje
+                mensaje += i + ", ";
+            }
+                //PARA QUE LA 1ª IMPRESIÓN SALTE DE LÍNEA <BR>, <HR> PARA Q PINTE UNA LINEA 
+            mensaje += "<br><hr><br>";
+           // document.getElementById("mensaje").innerHTML = mensaje;
+
+
+           // i = 0;
+            //mensaje ="";
+
+            for( i = -50; i <= 50; i +=2 ){
+
+                mensaje += i + ", ";
+            }
+            mensaje += "<br><hr><br> ";
+            //document.getElementById("mensaje").innerHTML = mensaje;
+
+            for (i=127; i<= 258; i++){
+
+                //PARA QUE SAQUE LOS MÚLTIPLOS DE 5
+                if (i % 5==0){
+
+                 mensaje += i + ", ";
+
+                }
+            }
+            mensaje += "<br><hr><br> ";
+
+            //PARA QUE IMPRIMA EN LA PG WEB
+            document.getElementById("mensaje").innerHTML = mensaje;
+
+
+
+
+
+         }
+
+    </script> 
+
+</body>
+</html>
